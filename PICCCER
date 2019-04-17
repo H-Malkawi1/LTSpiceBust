@@ -1,0 +1,32 @@
+"""
+PICCCER = Picture Colour ChangER.
+
+A small script written to plagiarize circuits lab
+"""
+
+from PIL import Image
+
+# Open image file
+img_name = "untitest.png"
+im = Image.open(img_name)
+
+# Image Data
+width, height = im.size
+
+# Loading image pixels
+px = im.load()
+
+# Access the images pixels
+for x in range(width):
+    for y in range(height):
+        # #check for black
+        # if px[x, y][0] not in range(0,31) and px[x, y][1] not in range(0,31) and px[x, y][2] not in range(0,31):
+        #     #check for outline
+        #     if px[x, y][0] not in range(180,240) and not px[x, y][1] in range(180,240) and not px[x, y][2] in range(180,240):
+        #         # Remove
+        #        # px[x, y] = (255,255,255)
+        if px[x, y][0] == 88 and px[x, y][1] == 88 and px[x, y][2] == 88:
+            px[x, y] = (192,192,192)
+
+# Save image and exit
+im.save(img_name)
